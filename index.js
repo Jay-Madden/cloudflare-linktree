@@ -19,6 +19,7 @@ const links = [
     generateLink('Clembot', 'https://github.com/ClemsonCPSC-Discord/ClemBot'),
     generateLink('Productivity Track', 'https://github.com/Jay-Madden/ProductivityTrack'),
     generateLink('Group10', 'https://github.com/Jay-Madden/Group10'),
+    generateLink('Linktree Source', 'https://github.com/Jay-Madden/cloudflare-linktree'),
 ]
 
 addEventListener('fetch', event => {
