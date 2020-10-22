@@ -7,25 +7,28 @@ export class DivTransformer {
     }
 
     async element(element) {
-        const idAttrib = element.getAttribute('id')
-        if (idAttrib === 'links') {
-            for (var link of this.links) {
-                element.append(`<a href="${link.url}">${link.name}</a>\n`, {
-                    html: true,
-                })
-            }
-        } else if (idAttrib === 'profile') {
-            element.removeAttribute('style')
-        } else if (idAttrib === 'social') {
-            element.removeAttribute('style')
-            for (var link of this.socialLinks) {
-                element.append(
-                    `<a href="${link.url}">${svg.icons[link.name]}</a>`,
-                    {
+        switch (element.getAttribute('id')) {
+            case 'links':
+                for (var link of this.links) {
+                    element.append(`<a href="${link.url}">${link.name}</a>\n`, {
                         html: true,
-                    }
-                )
-            }
+                    })
+                }
+                break
+            case 'profile':
+                element.removeAttribute('style')
+                break
+            case 'social':
+                element.removeAttribute('style')
+                for (var link of this.socialLinks) {
+                    element.append(
+                        `<a href="${link.url}">${svg.icons[link.name]}</a>`,
+                        {
+                            html: true,
+                        }
+                    )
+                }
+                break
         }
     }
 }
